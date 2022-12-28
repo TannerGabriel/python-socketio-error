@@ -1,0 +1,9 @@
+version: '3'
+services:
+  socket_test:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    restart: always
+    privileged: true
+    network_mode: "host"

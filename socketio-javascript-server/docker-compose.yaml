@@ -1,0 +1,19 @@
+version: '3'
+services:
+  socket-server:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    restart: always
+    ports:
+      - 3000
+    networks:
+      - nginx_proxy_net
+    environment:
+      - VIRTUAL_HOST=DOMAIN
+      - VIRTUAL_PORT=3000
+      - LETSENCRYPT_HOST=DOMAIN
+
+networks:
+  nginx_proxy_net:
+    external: true
